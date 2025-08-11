@@ -1,16 +1,18 @@
+const express = require('express');
+const axios = require('axios');
+const cors = require('cors');
+
+const app = express();
+
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'https://janitorai.com');
   res.header('Access-Control-Allow-Methods', 'GET, POST');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
-const express = require('express');
-const axios = require('axios');
-const cors = require('cors');
 
-const app = express();
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || "sk-26422a8ba2ec49d3aeb9be200851c4d0";
 
