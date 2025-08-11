@@ -20,7 +20,7 @@ app.post('/v1/chat/completions', async (req, res) => {
       },
       {
         headers: {
-          'Authorization': `Bearer ${DEEPSEEK_API_KEY}',
+          'Authorization': `Bearer ${DEEPSEEK_API_KEY}`,
           'Content-Type': 'application/json',
         },
       }
@@ -45,7 +45,6 @@ app.post('/v1/chat/completions', async (req, res) => {
         total_tokens: 0,
       },
     });
-
   } catch (error) {
     console.error("Proxy error:", error.response?.data || error.message);
     res.status(500).json({ error: "Internal Server Error" });
